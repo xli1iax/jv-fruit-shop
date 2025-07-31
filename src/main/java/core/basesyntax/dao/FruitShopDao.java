@@ -1,5 +1,9 @@
 package core.basesyntax.dao;
 
 public interface FruitShopDao {
-read write get
+    void add(String fruit, int amount);
+
+    void subtract(String fruit, int amount);
+
+    void update(String fruit, int amount);
 }
