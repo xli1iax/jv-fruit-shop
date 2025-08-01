@@ -5,8 +5,4 @@ import java.util.Map;
 
 public class FruitShop {
     public static final Map<String, Integer> storage = new HashMap<>();
-
-    public Map<String, Integer> getStorage() {
-        return storage;
-    }
 }

@@ -12,7 +12,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
             sb.append(entry.getKey())
                     .append(",")
                     .append(entry.getValue())
-                    .append("\n");
+                    .append(System.lineSeparator());
         }
         return sb.toString();
     }

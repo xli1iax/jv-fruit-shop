@@ -11,18 +11,6 @@ public class ShopServiceImpl implements ShopService {
         this.operationStrategy = operationStrategy;
     }
 
-    public void setOperationStrategy(OperationStrategy operationStrategy) {
-        if (operationStrategy == null) {
-            throw new NullPointerException("operationStrategy is null");
-        }
-
-        this.operationStrategy = operationStrategy;
-    }
-
-    public OperationStrategy getOperationStrategy() {
-        return operationStrategy;
-    }
-
     @Override
     public void process(List<FruitTransaction> transactions) {
         transactions.forEach(transaction -> {

@@ -27,15 +27,15 @@ import java.util.Map;
  * Feel free to remove this class and create your own.
  */
 public class Main {
-    public static void main(String[] arg) {
-        // 1. Read the data from the input CSV file
-        FileReader fileReader = new FileReaderImpl();
-        List<String> inputReport = fileReader.read("src/main/java/csv/report.csv");
+    private static final String INPUT_FILE = "src/main/resources/report.csv";
+    private static final String OUTPUT_FILE = "src/main/resources/finalReport.csv";
 
-        // 2. Convert the incoming data into FruitTransactions list
+    public static void main(String[] arg) {
+        FileReader fileReader = new FileReaderImpl();
+        List<String> inputReport = fileReader.read(INPUT_FILE);
+
         DataConverter dataConverter = new DataConverterImpl();
 
-        // 3. Create and feel the map with all OperationHandler implementations
         Map<FruitTransaction.Operation, OperationHandler> operationHandlers = new HashMap<>();
         operationHandlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation());
         operationHandlers.put(FruitTransaction.Operation.PURCHASE, new PurchaseOperation());
@@ -43,17 +43,14 @@ public class Main {
         operationHandlers.put(FruitTransaction.Operation.SUPPLY, new SupplyOperation());
         OperationStrategy operationStrategy = new OperationStrategyImpl(operationHandlers);
 
-        // 4. Process the incoming transactions with applicable OperationHandler implementations
         List<FruitTransaction> transactions = dataConverter.convertToTransaction(inputReport);
         ShopService shopService = new ShopServiceImpl(operationStrategy);
         shopService.process(transactions);
 
-        // 5.Generate report based on the current Storage state
         ReportGenerator reportGenerator = new ReportGeneratorImpl();
         String resultingReport = reportGenerator.getReport();
-        Map<String, Integer> storage = FruitShop.storage;
-        // 6. Write the received report into the destination file
+
         FileWriter fileWriter = new FileWriterImpl();
-        fileWriter.write(resultingReport, "src/main/java/csv/finalReport.csv");
+        fileWriter.write(resultingReport, OUTPUT_FILE);
     }
 }
