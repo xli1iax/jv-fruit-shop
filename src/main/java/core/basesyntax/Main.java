@@ -16,7 +16,6 @@ import core.basesyntax.service.operation.OperationStrategyImpl;
 import core.basesyntax.service.operation.PurchaseOperation;
 import core.basesyntax.service.operation.ReturnOperation;
 import core.basesyntax.service.operation.SupplyOperation;
-import core.basesyntax.storage.FruitShop;
 import core.basesyntax.writer.FileWriter;
 import core.basesyntax.writer.FileWriterImpl;
 import java.util.HashMap;
