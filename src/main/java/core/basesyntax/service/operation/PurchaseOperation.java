@@ -6,7 +6,7 @@ import core.basesyntax.model.FruitTransaction;
 public class PurchaseOperation implements OperationHandler {
     @Override
     public void process(FruitTransaction transaction) {
-        FruitShopDaoCsvImpl fruitShopDaoCsvImpl = new FruitShopDaoCsvImpl();
-        fruitShopDaoCsvImpl.subtract(transaction.getFruit(), transaction.getQuantity());
+        FruitShopDaoCsvImpl.getInstance().subtract(transaction.getFruit(),
+                transaction.getQuantity());
     }
 }

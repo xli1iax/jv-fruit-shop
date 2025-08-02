@@ -3,6 +3,15 @@ package core.basesyntax.dao;
 import core.basesyntax.storage.FruitShop;
 
 public class FruitShopDaoCsvImpl implements FruitShopDao {
+    private static final FruitShopDaoCsvImpl INSTANCE = new FruitShopDaoCsvImpl();
+
+    private FruitShopDaoCsvImpl() {
+    }
+
+    public static FruitShopDaoCsvImpl getInstance() {
+        return INSTANCE;
+    }
+
     @Override
     public void add(String fruit, int amount) {
         FruitShop.storage.put(fruit, FruitShop.storage.getOrDefault(fruit, 0) + amount);

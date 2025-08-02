@@ -7,7 +7,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
     @Override
     public String getReport() {
         StringBuilder sb = new StringBuilder();
-        sb.append("fruit,quantity\n");
+        sb.append("fruit,quantity");
         for (Map.Entry<String, Integer> entry : FruitShop.storage.entrySet()) {
             sb.append(entry.getKey())
                     .append(",")
