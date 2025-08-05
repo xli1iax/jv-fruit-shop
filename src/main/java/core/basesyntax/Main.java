@@ -26,8 +26,8 @@ import java.util.Map;
  * Feel free to remove this class and create your own.
  */
 public class Main {
-    private static final String INPUT_FILE = "src/main/resources/report.csv";
-    private static final String OUTPUT_FILE = "src/main/resources/finalReport.csv";
+    private static final String INPUT_FILE = "src/main/java/resources/report.csv";
+    private static final String OUTPUT_FILE = "src/main/java/resources/finalReport.csv";
 
     public static void main(String[] arg) {
         FileReader fileReader = new FileReaderImpl();

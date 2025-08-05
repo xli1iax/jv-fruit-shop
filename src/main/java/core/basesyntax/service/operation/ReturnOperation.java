@@ -1,12 +1,13 @@
 package core.basesyntax.service.operation;
 
-import core.basesyntax.dao.FruitShopDaoCsvImpl;
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.storage.FruitShop;
 
 public class ReturnOperation implements OperationHandler {
     @Override
     public void process(FruitTransaction transaction) {
-
-        FruitShopDaoCsvImpl.getInstance().add(transaction.getFruit(), transaction.getQuantity());
+        FruitShop.storage.put(transaction.getFruit(),
+                FruitShop.storage.getOrDefault(transaction.getFruit(), 0)
+                        + transaction.getQuantity());
     }
 }
